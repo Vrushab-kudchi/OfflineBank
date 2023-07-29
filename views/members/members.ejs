@@ -1,0 +1,53 @@
+<%- include('../Components/Header.ejs') %>
+    <%- include('../Components/Navbar.ejs') %>
+        <div class="container my-2">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Member No</th>
+                            <th>Member Name</th>
+                            <th>Branch</th>
+                            <th>Joining Date</th>
+                            <th>Aadhar No</th>
+                            <th>Pancard No</th>
+                            <th>Phone No</th>
+                            <th>Status</th> <!-- Add the "Status" column -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add your table data rows here -->
+                        <% members.forEach(member=> { %>
+                            <tr>
+                                <td>
+                                    <%= member.Member_id %>
+                                </td>
+                                <td>
+                                    <%= member.First_name %>
+                                        <%= member.Last_name %>
+                                </td>
+                                <td>
+                                    <%= member.Branch %>
+                                </td>
+                                <td>
+                                    <%= member.Joining_date %>
+                                </td>
+                                <td>
+                                    <%= member.Aadhar_no %>
+                                </td>
+                                <td>
+                                    <%= member.Pan_no %>
+                                </td>
+                                <td>
+                                    <%= member.Phone_no %>
+                                </td>
+                                <td>
+                                    <%= member.Status %>
+                                </td> <!-- Display the "Status" value for each member -->
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <%- include('../Components/Footer.ejs') %>

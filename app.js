@@ -3,10 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
+const fileUpload = require('express-fileupload');
 
+//Routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var memberRouter = require('./routes/memberRouter');
+var branchRouter = require('./routes/branchRouter');
+
+//Database
+var memberModel = require('./Model/Member');
+
+
 
 var app = express();
 
@@ -19,10 +28,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/member', memberRouter)
+app.use('/member', memberRouter);
+app.use('/branch', branchRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

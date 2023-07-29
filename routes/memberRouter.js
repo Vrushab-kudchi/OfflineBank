@@ -1,17 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var memberController = require('../Controller/memberController');
 
 
-router.get('/', function (req, res) {
-    res.send("main");
-});
+router.get('/add', memberController.getAdd);
+router.post('/add', memberController.postAdd);
 
-router.get('/add', function (req, res) {
-    res.render('./members/addMember');
-})
+router.get('/edit', memberController.getEdit);
 
-router.get('/edit', function (req, res) {
-    res.render('./members/editMember');
-})
+
+router.get('/', memberController.Members);
 
 module.exports = router;

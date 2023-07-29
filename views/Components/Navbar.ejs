@@ -1,0 +1,470 @@
+<div>
+    <nav class="navbar navbar-dark bg-navy navbar-expand-lg py-0">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand me-4 mx-3 fs-4" href="/">
+                <img src="" style="width: 120px" alt="Logo" />
+            </a>
+            <div>
+                <ul class="navbar-nav nav nav-underline text-sm mx-auto my-0">
+                    <li class="nav-item fs-6">
+                        <p>Branch: Belgaum</p>
+                    </li>
+                    <li>|</li>
+                    <li class="nav-item fs-6">
+                        <p>Timing:</p>
+                    </li>
+                    <li class="nav-item fs-6">
+                        <div id="currentDateTime"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">
+                            <i class="fa-solid fa-home fa-xl"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg d-flex justify-content-evenly py-0">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav nav-underline text-sm mx-auto my-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-users" style="color: #fff;"></i> Membership
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/member/add">New Membership</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="/member">Membership List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">New Shares</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Share Holdings List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Share Transfer History</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-file-invoice" style="color: #fff;"></i> Accounting
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Cash Entry</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="/members_list">Transfer Entry</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Fund transfer</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Ledger</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction Approvals</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Denomanations</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-coins" style="color: #fff;"></i> Savings
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">New Account</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Accounts List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Manual Interest</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-hand-holding-dollar" style="color: #fff;"></i> FD
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">New Account</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Accounts List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Accounts Renewal List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Calculator</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Manual Interest</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-money-check-dollar" style="color: #fff;"></i> MIS
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">New Account</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Accounts List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Accounts Renewal List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Calculator</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Manual Interest</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-piggy-bank" style="color: #fff;"></i> Pigmy
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">New Account</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Accounts List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Agent</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Calculator</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Manual Interest</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-circle-dollar-to-slot" style="color: #fff;"></i> RD
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">New Account</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Accounts List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Calculator</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Manual Interest</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-hand-holding-dollar fa-flip-vertical" style="color: #fff;"></i> Loan
+                            Accounts
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">New Loan Against Deposit</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">New Gold Loan</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">New Other Loan</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Loan Info</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Loan Accounts List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Calculator</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Loan Renewal List</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Lean Deposit</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Calculator</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Manual Interest</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Notice</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Reports</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-clipboard-list" style="color: #fff;"></i> Reports
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Membership Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Share Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Deposit Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Amount Transfer Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Loan Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Entry Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Branch Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Employee Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Agent Reports</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">General Ledger</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">DayBook</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Balance Sheet</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Profit & Loss</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-building" style="color: #fff;"></i> Company
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <!-- Branches -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Branches</a>
+                                <ul class="dropdown-menu">
+                                    <!-- First Branch -->
+                                    <li><a class="dropdown-item" href="#">Branch 1</a></li>
+                                    <!-- Second Branch -->
+                                    <li><a class="dropdown-item" href="#">Branch 2</a></li>
+                                    <!-- Third Branch -->
+                                    <li><a class="dropdown-item" href="#">Branch 3</a></li>
+                                    <!-- Add more branches here -->
+                                </ul>
+                            </li>
+                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <!-- Other dropdown items -->
+                            <li><a class="dropdown-item" href="#">Directors</a></li>
+                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <li><a class="dropdown-item" href="#">Promoters</a></li>
+                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <li><a class="dropdown-item" href="#">Unemcumbered Deposit</a></li>
+                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <li><a class="dropdown-item" href="#">Bank Accounts</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-shield-halved" style="color: #fff;"></i> Management
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">HR Management</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Users Role</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Agent Management</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Transaction Edit</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Approvals</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Member Management</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Schemes Management</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">SMS History</a></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
+                            <li><a class="dropdown-item" href="#">Back Day Pendings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<script>
+    // Function to update the current date and time
+    function updateDateTime() {
+        const now = new Date();
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        };
+        const formattedDateTime = now.toLocaleString('en-US', options);
+
+        // Update the content of the element
+        document.getElementById('currentDateTime').innerText = formattedDateTime;
+    }
+
+    // Call the function to update the date and time immediately
+    updateDateTime();
+
+    // Update the date and time every second
+    setInterval(updateDateTime, 1000);
+</script>
