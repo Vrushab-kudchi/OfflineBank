@@ -1,17 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var branchController=require('../Controller/branchController')
 
-router.get('/add', (req, res) => {
-    res.render('Branch/addBranch');
-});
-
-router.get('/edit', (req, res) => {
-    res.render('Branch/editBranch');
-});
+router.get('/add', branchController.add);
+router.post('/add', branchController.addPost);
 
 
-router.get('/', (req, res) => {
-    res.render('Branch/branch');
-});
+router.get('/edit/:id', branchController.edit);
+router.post('/edit', branchController.postedit);
+
+router.get('/', branchController.branch);
 
 module.exports = router;

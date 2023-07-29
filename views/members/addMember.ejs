@@ -13,7 +13,7 @@
                                     <label class="visually-hidden" for="autoSizingInputGroup">Member No</label>
                                     <div class="input-group">
                                         <div class="input-group-text bg-black bg-black">Member No</div>
-                                        <input type="text" class="form-control"  disabled />
+                                        <input type="text" class="form-control" readonly />
                                     </div>
                                 </div>
                             </div>
@@ -22,7 +22,14 @@
                                     <label class="visually-hidden" for="autoSizingInputGroup">Branch</label>
                                     <div class="input-group">
                                         <div class="input-group-text bg-black bg-black">Branch</div>
-                                        <input type="text" class="form-control" name="Branch" />
+                                        <select class="form-select" name="Branch_code">
+                                            <option selected value="">Choose...</option>
+                                            <% branch.forEach((data)=> { %>
+                                                <option value="<%= data.Branch_code %>">
+                                                    <%= data.Branch_name %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -514,7 +521,7 @@
                                     <label class="visually-hidden" for="autoSizingInputGroup">Talukla</label>
                                     <div class="input-group">
                                         <div class="input-group-text bg-black ">Taluka</div>
-                                        <input type="text" class="form-control" name="District" />
+                                        <input type="text" class="form-control" name="Taluka" />
                                     </div>
                                 </div>
                             </div>
@@ -523,7 +530,7 @@
                                     <label class="visually-hidden" for="autoSizingInputGroup">District</label>
                                     <div class="input-group">
                                         <div class="input-group-text bg-black ">District</div>
-                                        <input type="text" class="form-control" name="Taluka" />
+                                        <input type="text" class="form-control" name="District" />
                                     </div>
                                 </div>
                             </div>
@@ -576,9 +583,7 @@
                                     <label class="visually-hidden" for="autoSizingInputGroup">Country</label>
                                     <div class="input-group">
                                         <div class="input-group-text bg-black ">Country</div>
-                                        <select class="form-select" name="Country">
-                                            <option value="India">India</option>
-                                        </select>
+                                        <input type="text" class="form-control" name="Country" value="India" readonly />
                                     </div>
                                 </div>
                             </div>
@@ -848,7 +853,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-warning text-center">Submit</button>
+                <button type="submit" class="btn btn-lg btn-success text-center">Submit</button>
             </form>
 
 

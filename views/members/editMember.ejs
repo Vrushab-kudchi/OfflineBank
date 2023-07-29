@@ -1,13 +1,986 @@
-<!DOCTYPE html>
-<html>
+<%- include('../Components/Header.ejs') %>
+    <%- include('../Components/Navbar.ejs') %>
+        <div class="container text-center">
+            <form action="/member/edit" method="post">
+                <div class="card card-outline card-danger bg-dark my-4">
+                    <div class="card-body">
+                        <h3 class="card-header text-center">Members Information</h3>
 
-<head>
-    <title>Test CSS</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+                        <!-- 1st row -->
+                        <div class="row my-2">
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Member No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Member No</div>
+                                        <input type="text" class="form-control" name="Member_id"
+                                            value="<%=data.Member_id %>" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Branch</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Branch</div>
+                                        <select class="form-select" name="Branch_code">
+                                            <option selected value="">Choose...</option>
+                                            <% branch.forEach((data)=> { %>
+                                                <option value="<%= data.Branch_code %>">
+                                                    <%= data.Branch_name %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Joining Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">Joining Date</div>
+                                        <input type="date" class="form-control" id="Date_of_joining" name="Joining_date"
+                                            value="<%=data.Joining_date %>"
+                                            style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;padding: 6px 12px;margin-right: 0px;border-right-width: 0px;width: 166px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Prefix</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Prefix</div>
+                                        <select class="form-select" name="Prefix">
+                                            <option selected value="">Choose...</option>
+                                            <option value="md">Md</option>
+                                            <option value="mr">Mr</option>
+                                            <option value="ms">Ms</option>
+                                            <option value="mrs">Mrs</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-<body>
-    <h1>Hello, this is a test!</h1>
-</body>
+                        <!-- 2nd row -->
+                        <div class="row my-2">
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">First Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">First Name</div>
+                                        <input type="text" class="form-control" name="First_name"
+                                            value="<%=data.First_name %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Middle Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Middle Name</div>
+                                        <input type="text" class="form-control" name="Middle_name"
+                                            value="<%=data.Middle_name %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Last Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Last Name</div>
+                                        <input type="text" class="form-control" name="Last_name"
+                                            value="<%=data.Last_name %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Gender</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Gender</div>
+                                        <select class="form-select" name="Gender" value="<%=data.Gender %>">
+                                            <option selected value="">Choose...</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-</html>
+                        <!-- 3rd row -->
+                        <div class="row my-2">
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="dateOfBirth">Date of Birth</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Date of Birth</div>
+                                        <input type="date" class="" form-control id="Date_of_birth" name="Date_of_birth"
+                                            value="<%=data.Date_of_birth %>"
+                                            style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;padding: 6px 12px;margin-right: 0px;border-right-width: 0px;width: 166px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Age</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Age</div>
+                                        <input type="text" class="form-control" id="Age" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Education</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Education</div>
+                                        <input type="text" class="form-control" name="Education"
+                                            value="<%=data.Education %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Occupation</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Occupation</div>
+                                        <select class="form-select" name="Occupation" value="<%=data.Occupation %>">
+                                            <option selected value="">Choose...</option>
+                                            <option value="Employed">Employed</option>
+                                            <option value="Self_Employed">Self-Employed</option>
+                                            <option value="Business">Business</option>
+                                            <option value="Freelancer">Freelancer</option>
+                                            <option value="Private_service">Private service</option>
+                                            <option value="Agriculture">Agriculture</option>
+                                            <option value="Agent">Agent</option>
+                                            <option value="Student">Student</option>
+                                            <option value="House_wife">House Wife</option>
+                                            <option value="At_home">At Home</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4th row -->
+                        <div class="card-header"></div>
+                        <h3 class="card-header text-center">Members Other Details</h3>
+                        <div class='row my-2'>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Marital Status</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Marital Status</div>
+                                        <select class="form-select" name="Marital_status">
+                                            <% if(data.Marital_status) { %>
+                                                <option selected value="<%= data.Marital_status %>">
+                                                    <%= data.Marital_status %>
+                                                </option>
+                                                <% } else { %>
+                                                    <option selected value="">Choose..</option>
+                                                    <% } %>
+                                                        <option value="Single">Single</option>
+                                                        <option value="Married">Married</option>
+                                                        <option value="Divorced">Divorced</option>
+                                                        <option value="Separated">Separated</option>
+                                                        <option value="Widowed">Widowed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Religion</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Religion</div>
+                                        <select class="form-select" name="Religion">
+                                            <% if(data.Religion) { %>
+                                                <option selected value="<%= data.Religion %>">
+                                                    <%= data.Religion %>
+                                                </option>
+                                                <% } else { %>
+                                                    <option selected value="">Choose..</option>
+                                                    <% } %>
+
+                                                        <option value="Hinduism">Hinduism</option>
+                                                        <option value="Islam">Islam</option>
+                                                        <option value="Christianity">Christianity</option>
+                                                        <option value="Sikhism">Sikhism</option>
+                                                        <option value="Buddhism">Buddhism</option>
+                                                        <option value="Jainism">Jainism</option>
+                                                        <option value="Parsi">Zoroastrianism (Parsi)</option>
+                                                        <option value="Judaism">Judaism</option>
+                                                        <option value="Bahai">Bahai</option>
+                                                        <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Category</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Category</div>
+                                        <select class="form-select" name="Category">
+                                            <% if(data.Category) { %>
+                                                <option selected value="<%= data.Category %>">
+                                                    <%= data.Category %>
+                                                </option>
+                                                <% } else { %>
+                                                    <option selected value="">Choose..</option>
+                                                    <% } %>
+                                                        <option value="General">General</option>
+                                                        <option value="OBC">OBC (Other Backward Classes)</option>
+                                                        <option value="SC">SC (Scheduled Castes)</option>
+                                                        <option value="ST">ST (Scheduled Tribes)</option>
+                                                        <option value="EWS">EWS (Economically Weaker Sections)</option>
+                                                        <option value="Minority">Minority</option>
+                                                        <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">If Other</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">If Other</div>
+                                        <input type="text" class="form-control" name="If_other"
+                                            value="<%=data.If_other %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Aadhar No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Aadhar No</div>
+                                        <input type="number" class="form-control" name="Aadhar_no"
+                                            value="<%=data.Aadhar_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Pan No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Pan No</div>
+                                        <input type="text" class="form-control" name="Pan_no"
+                                            value="<%=data.Pan_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Voter ID No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Voter ID No</div>
+                                        <input type="text" class="form-control" name="Voter_no"
+                                            value="<%=data.Voter_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Ration Card No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Ration Card No</div>
+                                        <input type="text" class="form-control" name="Ration_no"
+                                            value="<%=data.Ration_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- {/* 6th row */} -->
+                        <div class='row my-2'>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Electricity Bill
+                                        No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Electricity Bill No</div>
+                                        <input type="text" class="form-control" name="Electricity_bill_no"
+                                            value="<%=data.Electricity_bill_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Driving License No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Driving License No</div>
+                                        <input type="text" class="form-control" name="Driving_license_no"
+                                            value="<%=data.Driving_license_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Passport No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Passport No</div>
+                                        <input type="text" class="form-control" name="Passport_no"
+                                            value="<%=data.Passport_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Other KYC</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Other KYC</div>
+                                        <input type="text" class="form-control" name="Other_kyc"
+                                            value="<%=data.Other_kyc %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- {/* 7th row */} -->
+                        <div class="card-header"></div>
+                        <div class='row my-2'>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Father
+                                        Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Father Name</div>
+                                        <input type="text" class="form-control" name="Father_name"
+                                            value="<%=data.Father_name %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Father
+                                        Occupation</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Father Occupation</div>
+                                        <input type="text" class="form-control" name="Father_occupation"
+                                            value="<%=data.Father_occupation %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Father Age</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Father Age</div>
+                                        <input type="text" class="form-control" name="Father_age"
+                                            value="<%=data.Father_age %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Mother Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Mother Name</div>
+                                        <input type="text" class="form-control" name="Mother_name"
+                                            value="<%=data.Mother_name %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Mother
+                                        Occupation</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Mother Occupation</div>
+                                        <input type="text" class="form-control" name="Mother_occupation"
+                                            value="<%=data.Mother_occupation %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Mother Age</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Mother Age</div>
+                                        <input type="text" class="form-control" name="Mother_age"
+                                            value="<%=data.Mother_age %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Spouse Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Spouse Name</div>
+                                        <input type="text" class="form-control" name="Spouse_name"
+                                            value="<%=data.Spouse_name %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Spouse
+                                        Occupation</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Spouse Occupation</div>
+                                        <input type="text" class="form-control" name="Spouse_occupation"
+                                            value="<%=data.Spouse_occupation %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Spouse Age</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Spouse Age</div>
+                                        <input type="text" class="form-control" name="Spouse_age"
+                                            value="<%=data.Spouse_age %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 10 row -->
+                        <div class="card-header"></div>
+                        <h3 class="card-header text-center">Introducer</h3>
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Member No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Member No</div>
+                                        <input type="text" class="form-control" name="Member_no" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Member Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Member Name</div>
+                                        <select class="form-select" name="Member_name_list">
+                                            <option selected value="">Choose...</option>
+                                            <option value="member1">member 1</option>
+                                            <option value="member2">Member 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header"></div>
+                        <h3 class="card-header text-center">Employee/Agent</h3>
+
+                        <!-- 11th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Employee/Agent No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Employee/Agent No</div>
+                                        <input type="text" class="form-control" name="Emplyee_agent_no" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Employee/Agent
+                                        Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Employee/Agent Name</div>
+                                        <select class="form-select" name="Emplyee_agent_name">
+                                            <option selected value="">Choose...</option>
+                                            <option value="emp0001">EMP0001</option>
+                                            <option value="agt0001">AGT0001</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-outline card-danger bg-dark my-4">
+                    <div class='card-body'>
+                        <h3 class="card-header text-center">Permanent Address</h3>
+
+                        <!-- 12th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">H.no</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">House No</div>
+                                        <input type="text" class="form-control" name="House_no"
+                                            value="<%=data.House_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Galli </label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Galli</div>
+                                        <input type="text" class="form-control" name="Galli" value="<%=data.Galli %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 13th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Street</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Street</div>
+                                        <input type="text" class="form-control" name="Street"
+                                            value="<%=data.Street %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Landmark</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Landmark</div>
+                                        <input type="text" class="form-control" name="Landmark"
+                                            value="<%=data.Landmark %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 14th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Talukla</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Taluka</div>
+                                        <input type="text" class="form-control" name="Taluka"
+                                            value="<%=data.Taluka %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">District</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">District</div>
+                                        <input type="text" class="form-control" name="District"
+                                            value="<%=data.District %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 15th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">State</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">State</div>
+                                        <select class="form-select" name="State">
+                                            <% if(data.State) { %>
+                                                <option selected value="<%= data.State %>">
+                                                    <%= data.State %>
+                                                </option>
+                                                <% } else { %>
+                                                    <option selected value="">Select State</option>
+                                                    <% } %>
+                                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                        <option value="Assam">Assam</option>
+                                                        <option value="Bihar">Bihar</option>
+                                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                                        <option value="Goa">Goa</option>
+                                                        <option value="Gujarat">Gujarat</option>
+                                                        <option value="Haryana">Haryana</option>
+                                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                        <option value="Jharkhand">Jharkhand</option>
+                                                        <option value="Karnataka" selected>Karnataka</option>
+                                                        <option value="Kerala">Kerala</option>
+                                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                        <option value="Maharashtra">Maharashtra</option>
+                                                        <option value="Manipur">Manipur</option>
+                                                        <option value="Meghalaya">Meghalaya</option>
+                                                        <option value="Mizoram">Mizoram</option>
+                                                        <option value="Nagaland">Nagaland</option>
+                                                        <option value="Odisha">Odisha</option>
+                                                        <option value="Punjab">Punjab</option>
+                                                        <option value="Rajasthan">Rajasthan</option>
+                                                        <option value="Sikkim">Sikkim</option>
+                                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                                        <option value="Telangana">Telangana</option>
+                                                        <option value="Tripura">Tripura</option>
+                                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                        <option value="Uttarakhand">Uttarakhand</option>
+                                                        <option value="West Bengal">West Bengal</option>
+                                                        {/* <!-- You can add more states here --> */}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Country</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Country</div>
+                                        <input type="text" class="form-control" name="Country" value="India" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 16th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">City</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">City</div>
+                                        <input type="text" class="form-control" name="City" value="<%=data.City %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Pincode</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Pincode</div>
+                                        <input type="text" class="form-control" name="Pincode"
+                                            value="<%=data.Pincode %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 17th row -->
+                        <div class='row my-2'>
+                            <div class="card-header"></div>
+                            <h3 class="card-header text-center">Correspondence Address</h3>
+                            <div class='col-md-12'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Full Address</label>
+                                    <div class="input-group mt-3">
+                                        <div class="input-group-text bg-black ">Full Address</div>
+                                        <input type="text" class="form-control" name="Full_address"
+                                            value="<%=data.Full_address %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header"></div>
+                        <h3 class="card-header text-center">Contact Information</h3>
+
+                        <!-- 18th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Phone No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Phone No</div>
+                                        <input type="text" class="form-control" name="Phone_no"
+                                            value="<%=data.Phone_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Alternate No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Alternate No</div>
+                                        <input type="text" class="form-control" name="Alternate_no"
+                                            value="<%=data.Alternate_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Telephone No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Telephone No</div>
+                                        <input type="text" class="form-control" name="Telephone_no"
+                                            value="<%=data.Telephone_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Email ID</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Email ID</div>
+                                        <input type="text" class="form-control" name="Email_id"
+                                            value="<%=data.Email_id %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-outline card-danger bg-dark my-4">
+                    <div class='card-body'>
+                        <h3 class="card-header text-center">Nominee Details</h3>
+                        <!-- 19th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Ful Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Full Name</div>
+                                        <input type="text" class="form-control" name="Nominee_full_name"
+                                            value="<%=data.Nominee_full_name %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Relation</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Relation</div>
+                                        <select class="form-select" name="Nominee_relation">
+                                            <% if(data.Nominee_relation) { %>
+                                                <option selected value="<%= data.Nominee_relation %>">
+                                                    <%= data.Nominee_realtion %>
+                                                </option>
+                                                <% } else { %>
+                                                    <option selected value="">Select Relation</option>
+                                                    <% } %>
+                                                        <option value="father">Father</option>
+                                                        <option value="mother">Mother</option>
+                                                        <option value="son">Son</option>
+                                                        <option value="daughter">Daughter</option>
+                                                        <option value="brother">Brother</option>
+                                                        <option value="sister">Sister</option>
+                                                        <option value="husband">Husband</option>
+                                                        <option value="wife">Wife</option>
+                                                        <option value="grandfather">Grandfather</option>
+                                                        <option value="grandmother">Grandmother</option>
+                                                        <option value="uncle">Uncle</option>
+                                                        <option value="aunt">Aunt</option>
+                                                        <option value="cousin">Cousin</option>
+                                                        <option value="nephew">Nephew</option>
+                                                        <option value="niece">Niece</option>
+                                                        <option value="friend">Friend</option>
+                                                        <option value="other">Other</option>
+                                                        {/* <!-- You can add more relationships here --> */}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Phone No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Phone No</div>
+                                        <input type="text" class="form-control" name="Nominee_phone_no"
+                                            value="<%=data.Nominee_phone_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 20th row -->
+                        <div class='row my-2'>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Aadhar No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Aadhar No</div>
+                                        <input type="number" class="form-control" name="Nominee_aadhar_no"
+                                            value="<%=data.Nominee_aadhar_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Pan No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Pan No</div>
+                                        <input type="text" class="form-control" name="Nominee_pan_no"
+                                            value="<%=data.Nominee_pan_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Voter ID No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Voter ID No</div>
+                                        <input type="text" class="form-control" name="Nominee_voter_no"
+                                            value="<%=data.Nominee_voter_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- {/* 21th row */} -->
+                        <div class='row my-2'>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Ration Card No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Ration Card No</div>
+                                        <input type="text" class="form-control" name="Nominee_ration_no"
+                                            value="<%=data.Nominee_ration_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Driving License No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Driving License No</div>
+                                        <input type="text" class="form-control" name="Nominee_driving_license_no"
+                                            value="<%=data.Nominee_driving_license_no %>" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Other KYC</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Other KYC</div>
+                                        <input type="text" class="form-control" name="Nominee_other_kyc"
+                                            value="<%=data.Nominee_other_kyc %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 22nd row -->
+                        <div class='row my-2'>
+                            <div class='col-md-12'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Full Address</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Full Address</div>
+                                        <input type="text" class="form-control" name="Nominee_full_address"
+                                            value="<%=data.Nominee_full_address %>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-outline card-danger bg-dark my-4">
+                    <div class='card-body'>
+                        <h3 class="card-header text-center">Kyc Upload</h3>
+                        <div class='row my-2'>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Photo</label>
+                                    <div class="input-group">
+                                        <label class="input-group-text bg-black ">Photo</label>
+                                        <input type="file" class="form-control" name="Photo_image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Signature</label>
+                                    <div class="input-group">
+                                        <label class="input-group-text bg-black ">Signature</label>
+                                        <input type="file" class="form-control" name="Signature_image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Aadhar</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Aadhar</div>
+                                        <input type="file" class="form-control" name="Aadhar_image" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row my-2'>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Pan card</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Pan Card</div>
+                                        <input type="file" class="form-control" name="Pan_image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-6'>
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Other KYC</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black ">Other KYC</div>
+                                        <input type="file" class="form-control" name="Other_kyc_image" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-success text-center">Update</button>
+            </form>
+
+
+        </div>
+        <%- include('../Components/Footer.ejs') %>
+            <!-- Place this script tag at the end of the HTML body or after the form -->
+            <script>
+                // Function to calculate age based on date of birth
+                function calculateAge() {
+                    const dobInput = document.getElementById('Date_of_birth');
+                    const ageInput = document.getElementById('Age');
+
+                    const dobValue = new Date(dobInput.value);
+                    const today = new Date();
+
+                    // Calculate the age
+                    let age = today.getFullYear() - dobValue.getFullYear();
+                    const monthDiff = today.getMonth() - dobValue.getMonth();
+
+                    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobValue.getDate())) {
+                        age--;
+                    }
+
+                    // Update the "Age" input field
+                    ageInput.value = age;
+                }
+
+                // Add an event listener to the "Date of Birth" input field
+                const dobInput = document.getElementById('Date_of_birth');
+                dobInput.addEventListener('change', calculateAge);
+
+                // Initial calculation when the page loads (if the date is pre-filled)
+                calculateAge();
+            </script>
+
+
+            <!-- Place this script tag at the end of the HTML body or after the form -->
+            <script>
+                // Function to get the current date in YYYY-MM-DD format
+                function getCurrentDate() {
+                    const now = new Date();
+                    const year = now.getFullYear();
+                    const month = String(now.getMonth() + 1).padStart(2, '0');
+                    const day = String(now.getDate()).padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                }
+
+                // Set the default value of the "Joining Date" input field to the current date
+                const joiningDateInput = document.getElementById('Date_of_joining');
+                joiningDateInput.value = getCurrentDate();
+            </script>
+            <!-- By adjusting the getCurrentDate() function to return the date in the "YYYY-MM-DD" format, the default value will be set correctly in the "Joining Date" input field using the input type="date".
+
+            Now, the default value of the "Joining Date" input field will be the current date in the correct format, and users can change the date using the date picker provided by the browser. -->

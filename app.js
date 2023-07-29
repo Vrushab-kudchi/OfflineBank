@@ -14,6 +14,7 @@ var branchRouter = require('./routes/branchRouter');
 
 //Database
 var memberModel = require('./Model/Member');
+var branchModel=require('./Model/Branch')
 
 
 

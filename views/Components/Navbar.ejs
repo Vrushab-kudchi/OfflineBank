@@ -373,15 +373,11 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <!-- Branches -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="#">Branches</a>
-                                <ul class="dropdown-menu">
-                                    <!-- First Branch -->
-                                    <li><a class="dropdown-item" href="#">Branch 1</a></li>
-                                    <!-- Second Branch -->
-                                    <li><a class="dropdown-item" href="#">Branch 2</a></li>
-                                    <!-- Third Branch -->
-                                    <li><a class="dropdown-item" href="#">Branch 3</a></li>
-                                    <!-- Add more branches here -->
+                                <a class="dropdown-item dropdown-toggle" href="">Branches</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="/branch">Branch List</a></li>
+                                    <li><a class="dropdown-item" href="/branch/add">Add Branch</a></li>
+                                    <li><a class="dropdown-item" href="/branch/edit">Edit Branch</a></li>
                                 </ul>
                             </li>
                             <li><hr class="dropdown-divider bg-dark" /></li>
@@ -390,7 +386,7 @@
                             <li><hr class="dropdown-divider bg-dark" /></li>
                             <li><a class="dropdown-item" href="#">Promoters</a></li>
                             <li><hr class="dropdown-divider bg-dark" /></li>
-                            <li><a class="dropdown-item" href="#">Unemcumbered Deposit</a></li>
+                            <li><a class="dropdown-item" href="#">Unencumbered Deposit</a></li>
                             <li><hr class="dropdown-divider bg-dark" /></li>
                             <li><a class="dropdown-item" href="#">Bank Accounts</a></li>
                         </ul>
@@ -468,3 +464,24 @@
     // Update the date and time every second
     setInterval(updateDateTime, 1000);
 </script>
+
+<!-- Custom JavaScript to enable nested dropdowns -->
+<script>
+    // Get all dropdown items with the "dropdown-submenu" class
+    const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+
+    // Add click event listeners to the dropdown items
+    dropdownSubmenus.forEach((dropdownSubmenu) => {
+        const dropdownToggle = dropdownSubmenu.querySelector('.dropdown-toggle');
+
+        dropdownToggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Toggle the "show" class on the nested dropdown
+            const nestedDropdown = dropdownSubmenu.querySelector('.dropdown-menu');
+            nestedDropdown.classList.toggle('show');
+        });
+    });
+</script>
+

@@ -1,0 +1,55 @@
+<%- include('../Components/Header.ejs') %>
+    <%- include('../Components/Navbar.ejs') %>
+        <div class="card card-outline card-danger bg-dark my-4 mx-5 px-2">
+            <h3 class="card-header text-center">Branch List</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-secondary">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Branch Name</th>
+                            <th>Branch Code</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Opening date</th>
+                            <th>Members</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add your table data rows here -->
+                        <% branch.forEach((data)=> { %>
+                            <tr>
+                                <td>
+                                    <%= data.Branch_name %>
+                                </td>
+                                <td>
+                                    <%= data.Branch_code %>
+                                </td>
+                                <td>
+                                    <%= data.City %>
+                                </td>
+                                <td>
+                                    <%= data.State %>
+                                </td>
+                                <td>
+                                    <%= data.Opening_date %>
+                                </td>
+                                <td>
+                                    <!-- Add member information here -->
+                                </td>
+                                <td>
+                                    <!-- Add status information here -->
+                                </td>
+                                <td>
+                                    <a class="fa-solid fa-pen-to-square" style="color: #000000;"
+                                        href="/branch/edit/<%= data.Branch_code %>"></a>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <%- include('../Components/Footer.ejs') %>
