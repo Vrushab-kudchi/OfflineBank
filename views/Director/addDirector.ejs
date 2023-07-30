@@ -1,0 +1,125 @@
+<%- include('../Components/Header.ejs') %>
+    <%- include('../Components/Navbar.ejs') %>
+
+        <div class="container text-center">
+            <form action="/director/add" method="post">
+                <div class="card card-outline card-danger bg-dark my-4">
+                    <div class="card-body">
+                        <h3 class="card-header text-center">Director Information</h3>
+
+                        <div class="row my-2">
+                            <div class="col-md-6">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Appointment Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">Appointment Date</div>
+                                        <input type="date" class="form-control" id="Appointment_date"
+                                            name="Appointment_date"
+                                            style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;padding: 6px 12px;margin-right: 0px;border-right-width: 0px;width: 166px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Resignation Date</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">Resignation Date</div>
+                                        <input type="date" class="form-control" id="Resignation_date"
+                                            name="Resignation_date"
+                                            style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;padding: 6px 12px;margin-right: 0px;border-right-width: 0px;width: 166px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-md-6">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Designation</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">Designation</div>
+                                        <input type="text" class="form-control" id="Designation" name="Designation" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Member</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black bg-black">Member</div>
+                                        <select class="form-select" name="Member_id" id="selectMember">
+                                            <option selected value="">Choose...</option>
+                                            <% member.forEach((data)=> { %>
+
+                                                <option value="<%= data.Member_id %>">
+                                                    (<%= data.Member_id %>)
+                                                        <%= data.First_name %>
+                                                            <%= data.Last_name %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-6">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Director Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">Director Name</div>
+                                        <input type="text" class="form-control" id="Director_name"
+                                            name="Director_name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-auto">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">DIN No</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">DIN No</div>
+                                        <input type="text" class="form-control" id="Din_no" name="Din_no" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-6">
+                                <div class="col-auto text-center">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Capital Amount</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">Capital Amount</div>
+                                        <input type="text" class="form-control" id="Capital_amt" name="Capital_amt" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-auto text-center">
+                                    <label class="visually-hidden" for="autoSizingInputGroup">Capital Amount</label>
+                                    <div class="input-group">
+                                        <div class="input-group-text bg-black">Capital in share</div>
+                                        <input type="text" class="form-control" id="Capital_to_share" name="Capital_to_share" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-success text-center">Submit</button>
+            </form>
+        </div>
+
+
+        <%- include('../Components/Footer.ejs') %>
+
+            <<script>
+                // Initialize Bootstrap Selectpicker on the ropdown with search functionality
+                $(document).ready(function () {
+                // Add the 'search' class to enable search functionality
+                $('#selectMember').selectpicker({
+                liveSearch: true,
+                liveSearchPlaceholder: 'Search for a member...',
+                // Add other options as needed
+                });
+                });
+                </script>

@@ -40,11 +40,13 @@
                             <i class="fa-solid fa-users" style="color: #fff;"></i> Membership
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/member/add">New Membership</a></li>
-                            <li>
-                                <hr class="dropdown-divider bg-dark" />
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="">Memberships</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="/member/add">New Membership</a></li>
+                                    <li><a class="dropdown-item" href="/member">Members List</a></li>
+                                </ul>
                             </li>
-                            <li><a class="dropdown-item" href="/member">Membership List</a></li>
                             <li>
                                 <hr class="dropdown-divider bg-dark" />
                             </li>
@@ -367,7 +369,8 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="fa-solid fa-building" style="color: #fff;"></i> Company
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
@@ -377,17 +380,30 @@
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item" href="/branch">Branch List</a></li>
                                     <li><a class="dropdown-item" href="/branch/add">Add Branch</a></li>
-                                    <li><a class="dropdown-item" href="/branch/edit">Edit Branch</a></li>
                                 </ul>
                             </li>
-                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
                             <!-- Other dropdown items -->
-                            <li><a class="dropdown-item" href="#">Directors</a></li>
-                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="">Directors</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="/director">Directors List</a></li>
+                                    <li><a class="dropdown-item" href="/director/add">Add Directors</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
                             <li><a class="dropdown-item" href="#">Promoters</a></li>
-                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
                             <li><a class="dropdown-item" href="#">Unencumbered Deposit</a></li>
-                            <li><hr class="dropdown-divider bg-dark" /></li>
+                            <li>
+                                <hr class="dropdown-divider bg-dark" />
+                            </li>
                             <li><a class="dropdown-item" href="#">Bank Accounts</a></li>
                         </ul>
                     </li>
@@ -484,4 +500,3 @@
         });
     });
 </script>
-

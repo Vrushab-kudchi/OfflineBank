@@ -11,10 +11,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var memberRouter = require('./routes/memberRouter');
 var branchRouter = require('./routes/branchRouter');
+var directorRouter = require('./routes/directorRouter');
 
 //Database
 var memberModel = require('./Model/Member');
-var branchModel=require('./Model/Branch')
+var branchModel = require('./Model/Branch');
+var directorModel = require('./Model/Director');
 
 
 
@@ -35,6 +37,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/member', memberRouter);
 app.use('/branch', branchRouter);
+app.use('/director', directorRouter);
 
 
 // catch 404 and forward to error handler
