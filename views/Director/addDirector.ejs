@@ -47,16 +47,15 @@
                                     <label class="visually-hidden" for="autoSizingInputGroup">Member</label>
                                     <div class="input-group">
                                         <div class="input-group-text bg-black bg-black">Member</div>
-                                        <select class="form-select" name="Member_id" id="selectMember">
+                                        <select class="form-select select2 js-example-basic-single" style="width:75%; height: 30%;" name="Member_id" id="selectMember">
                                             <option selected value="">Choose...</option>
                                             <% member.forEach((data)=> { %>
-
                                                 <option value="<%= data.Member_id %>">
                                                     (<%= data.Member_id %>)
-                                                        <%= data.First_name %>
-                                                            <%= data.Last_name %>
+                                                    <%= data.First_name %>
+                                                    <%= data.Last_name %>
                                                 </option>
-                                                <% }) %>
+                                            <% }) %>
                                         </select>
                                     </div>
                                 </div>
@@ -111,15 +110,9 @@
 
 
         <%- include('../Components/Footer.ejs') %>
-
-            <<script>
-                // Initialize Bootstrap Selectpicker on the ropdown with search functionality
-                $(document).ready(function () {
-                // Add the 'search' class to enable search functionality
-                $('#selectMember').selectpicker({
-                liveSearch: true,
-                liveSearchPlaceholder: 'Search for a member...',
-                // Add other options as needed
-                });
-                });
-                </script>
+        <script>
+            // Use .select2 instead of .js-example-basic-single
+            $('.select2').select2({
+                placeholder: 'Select an option',
+            });
+        </script>
