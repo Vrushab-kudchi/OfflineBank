@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./MasterDB.db');
 
 db.serialize(() => {
-     db.run(`CREATE TABLE IF NOT EXISTS MEMBERS (
+  db.run(`CREATE TABLE IF NOT EXISTS MEMBERS (
     Member_id INTEGER PRIMARY KEY AUTOINCREMENT,
     Branch_code VARCHAR(10),
     Joining_date DATE,
@@ -62,11 +62,11 @@ db.serialize(() => {
     Nominee_driving_license_no TEXT,
     Nominee_other_kyc TEXT,
     Nominee_full_address TEXT,
-    Photo_image BLOB,
-    Signature_image BLOB,
-    Aadhar_image BLOB,
-    Pan_image BLOB,
-    Other_kyc_image BLOB,
+    Photo_image TEXT,
+    Signature_image TEXT,
+    Aadhar_image TEXT,
+    Pan_image TEXT,
+    Other_kyc_image TEXT,
     FOREIGN KEY (Branch_code) REFERENCES BRANCH(Branch_code)
   )`);
 });
