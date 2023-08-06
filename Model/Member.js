@@ -3,7 +3,7 @@ const db = new sqlite3.Database('./MasterDB.db');
 
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS MEMBERS (
-    Member_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Member_id TEXT PRIMARY KEY,
     Branch_code VARCHAR(10),
     Joining_date DATE,
     Prefix TEXT,

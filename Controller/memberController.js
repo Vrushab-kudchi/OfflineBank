@@ -3,24 +3,26 @@ const db = new sqlite3.Database('./MasterDB.db');
 const fs = require('fs');
 const {s3Upload} = require('../AWS/S3Upload');
 const multer = require('multer');
+const generateNextMemberId = require('../Id Generator/Member_id');
 
 const upload = multer({ dest: 'public/MembersData/' });
 
 const memberController = {
 
-  getAdd: (req, res) => {
+getAdd: async (req, res) => {
+  try {
+    const Member_id = await generateNextMemberId(); // Call the function using await
     db.all(`SELECT * FROM BRANCH`, (err, branch) => {
-      if (err)
-      {
-        res.send("failed to Fetch Branch")
+      if (err) {
+        res.send("Failed to fetch Branch");
+      } else {
+        res.render('./members/addMember', { branch, Member_id }); // Pass the Member_id to the view
       }
-      else
-      {
-       res.render('./members/addMember' ,{branch});
-        }
-        })
-
-    },
+    });
+  } catch (err) {
+    console.error('Error generating Member ID:', err);
+  }
+},
 
         getEdit: (req, res) => {
         const id = req.params.id;
@@ -41,7 +43,7 @@ const memberController = {
             }
         });
     },
-     postAdd:[ upload.fields([{ name: 'Photo_image', maxCount: 1 }, { name: 'Signature_image', maxCount: 1 },{ name: 'Aadhar_image', maxCount: 1 },{ name: 'Pan_image', maxCount: 1 },{ name: 'Other_kyc_image', maxCount: 1 }]),async (req, res) => {
+  postAdd: [upload.fields([{ name: 'Photo_image', maxCount: 1 }, { name: 'Signature_image', maxCount: 1 }, { name: 'Aadhar_image', maxCount: 1 }, { name: 'Pan_image', maxCount: 1 }, { name: 'Other_kyc_image', maxCount: 1 }]), async (req, res) => {
     const {
       Member_id,
       Branch_code,
@@ -103,7 +105,7 @@ const memberController = {
     } = req.body;
 
 
-       const { Photo_image, Signature_image, Aadhar_image, Pan_image, Other_kyc_image } = req.files;
+  const { Photo_image, Signature_image, Aadhar_image, Pan_image, Other_kyc_image } = req.files;
 
   let Photo_imageUrl, Signature_imageUrl, Aadhar_imageUrl, Pan_imageUrl, Other_kyc_imageUrl;
 
@@ -130,7 +132,7 @@ if (Photo_image && Photo_image.length > 0) {
            db.run(
             `
      INSERT INTO MEMBERS (
-    Branch_code, Joining_date, Prefix, First_name, Middle_name, Last_name, Gender, Date_of_birth, Education,
+    Member_id, Branch_code, Joining_date, Prefix, First_name, Middle_name, Last_name, Gender, Date_of_birth, Education,
     Occupation, Marital_status, Religion, Category, If_other, Aadhar_no, Pan_no, Voter_no, Ration_no,
     Electricity_bill_no, Driving_license_no, Passport_no, Other_kyc, Father_name, Father_occupation,
     Father_age, Mother_name, Mother_occupation, Mother_age, Spouse_name, Spouse_occupation, Spouse_age,
@@ -139,10 +141,11 @@ if (Photo_image && Photo_image.length > 0) {
     Nominee_aadhar_no, Nominee_pan_no, Nominee_voter_no, Nominee_ration_no, Nominee_driving_license_no,
     Nominee_other_kyc, Nominee_full_address, Photo_image, Signature_image, Aadhar_image, Pan_image,
     Other_kyc_image
-  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
     ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `,
-  [
+             [
+    Member_id,
     Branch_code,
     Joining_date,
     Prefix,
