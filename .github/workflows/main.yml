@@ -1,0 +1,23 @@
+name: deploy_backend_OfflineBank
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/*' # Note the single quotes around 'release/*' for pattern matching
+
+jobs:
+  my_job:
+    name: deploy to staging
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Reloading Pm2
+      run: |
+        pm2 reload OffileBank
